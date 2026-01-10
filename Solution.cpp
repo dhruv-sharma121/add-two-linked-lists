@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 class ListNode {
 public:
     int val;
@@ -49,8 +52,36 @@ public:
         return result->next; // skip dummy node
     }
 };
-class Solution {
-public static void main(String[]args)
-{
+
+// Function to print linked list
+void printList(ListNode* head) {
+    while (head != nullptr) {
+        cout << head->val;
+        if (head->next != nullptr)
+            cout << " -> ";
+        head = head->next;
+    }
+    cout << endl;
 }
+
+int main() {
+
+    // Creating first number: 2 -> 4 -> 3
+    ListNode* l1 = new ListNode(2);
+    l1->next = new ListNode(4);
+    l1->next->next = new ListNode(3);
+
+    // Creating second number: 5 -> 6 -> 4
+    ListNode* l2 = new ListNode(5);
+    l2->next = new ListNode(6);
+    l2->next->next = new ListNode(4);
+
+    Solution sol;
+    ListNode* result = sol.addTwoNumbers(l1, l2);
+
+    cout << "Result: ";
+    printList(result);
+
+    return 0;
 }
+
